@@ -13,7 +13,7 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cicd-demo-release
+  name: demo-app-helm-site
   # IMPORTANT: This must be the namespace where you want the app to live
   namespace: demo-app-helm-site
 spec:
