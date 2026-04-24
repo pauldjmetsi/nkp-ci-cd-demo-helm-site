@@ -1,0 +1,40 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: demo-app-prod
+  namespace: demo-app-prod
+spec:
+  interval: 5m0s
+  url: https://github.com/pauldjmetsi/nkp-ci-cd-demo-helm
+  ref:
+    branch: main
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: demo-app-prod
+  # IMPORTANT: This must be the namespace where you want the app to live
+  namespace: demo-app-prod
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # This points to the GitOps Source you already created in the NKP UI
+      chart: ./nkp-demo/nkp-demo-helm
+      version: "0.1.0"
+      sourceRef:
+        kind: GitRepository
+        name: demo-app-prod # Use the exact name you gave it in NKP
+        namespace: demo-app-prod # Or wherever the GitRepository object lives
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  # This is where you can override your values.yaml for the workshop
+  values:
+    replicaCount: 1
+    ingress:
+      host: "demo-app-prod.10.2.0.151.nip.io"
