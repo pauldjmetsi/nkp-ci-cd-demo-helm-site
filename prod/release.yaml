@@ -38,6 +38,6 @@ spec:
     replicaCount: 1
     env:
       appVersion: "v.1.10"
-      buildVersion: "v202604211456"
+      buildVersion: "v2026042114566"
     ingress:
       host: "demo-app-prod.10.2.0.151.nip.io"
