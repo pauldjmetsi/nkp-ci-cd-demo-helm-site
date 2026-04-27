@@ -36,5 +36,8 @@ spec:
   # This is where you can override your values.yaml for the workshop
   values:
     replicaCount: 1
+    env:
+      appVersion: "v.1.9"
+      buildVersion: "v202603021059"
     ingress:
       host: "demo-app-prod.10.2.0.151.nip.io"
