@@ -18,9 +18,10 @@ metadata:
   namespace: demo-app-prod
 spec:
   interval: 5m
+  driftDetection:
+    enabled: true
   chart:
     spec:
-      # This points to the GitOps Source you already created in the NKP UI
       chart: ./nkp-demo/nkp-demo-helm
       version: "0.1.0"
       sourceRef:
