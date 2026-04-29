@@ -18,8 +18,8 @@ metadata:
   namespace: demo-app-prod
 spec:
   interval: 5m
-  driftDetection:
-    enabled: true
+  driftCorrection:
+    mode: enabled
   chart:
     spec:
       chart: ./nkp-demo/nkp-demo-helm

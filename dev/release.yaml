@@ -18,8 +18,8 @@ metadata:
   namespace: demo-app-dev
 spec:
   interval: 5m
-  driftDetection:
-    enabled: true
+  driftCorrection:
+    mode: enabled
   chart:
     spec:
       # This points to the GitOps Source you already created in the NKP UI
