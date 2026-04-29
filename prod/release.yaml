@@ -17,9 +17,9 @@ metadata:
   # IMPORTANT: This must be the namespace where you want the app to live
   namespace: demo-app-prod
 spec:
-  interval: 5m
-  driftCorrection:
+  driftDetection:
     mode: enabled
+  interval: 5m
   chart:
     spec:
       chart: ./nkp-demo/nkp-demo-helm
